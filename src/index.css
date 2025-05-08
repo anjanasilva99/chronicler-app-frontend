@@ -1,13 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  color: #263238;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  /* Button Styles */
+  .btn-primary {
+    @apply bg-primary text-white font-medium py-2 px-4 rounded hover:bg-secondary transition-colors duration-300 border-0;
+  }
+  
+  /* Card Styles */
+  .card {
+    @apply bg-white rounded-lg shadow-card mb-5 overflow-hidden border-0;
+  }
+  
+  .card-header {
+    @apply bg-primary text-white font-semibold p-4 rounded-t-lg;
+  }
+  
+  .card-body {
+    @apply p-4;
+  }
+  
+  /* Table Container */
+  .table-container {
+    @apply max-h-[400px] overflow-y-auto;
+  }
+  
+  /* Header Section */
+  .header {
+    @apply bg-gradient-to-r from-primary to-secondary text-white p-6 md:p-8 rounded-lg shadow-header mb-8 text-center;
+  }
+  
+  /* Input Form */
+  .input-form {
+    @apply bg-white p-5 rounded-lg shadow-card;
+  }
+  
+  /* Badges */
+  .badge-primary {
+    @apply bg-primary text-white text-sm font-medium px-2.5 py-1 rounded m-1;
+  }
+  
+  .badge-secondary {
+    @apply bg-secondary text-white text-sm font-medium px-2.5 py-1 rounded m-1;
+  }
+  
+  /* Value Classes */
+  .comparison-value {
+    @apply font-bold text-lg;
+  }
+  
+  .distance-value {
+    @apply text-danger font-bold;
+  }
+  
+  .result-highlight {
+    @apply text-2xl font-bold text-primary;
+  }
+  
+  /* Alert */
+  .alert {
+    @apply rounded-lg;
+  }
+  
+  /* Loading Spinner */
+  .loading {
+    @apply flex justify-center items-center h-[100px];
+  }
+  
+  .spinner-border {
+    @apply text-primary;
+  }
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .header {
+    @apply p-4;
+  }
+  
+  .result-highlight {
+    @apply text-xl;
+  }
 }
