@@ -54,6 +54,3 @@ The application expects input files where each line contains two space-separated
 - React: UI library for building the interface
 - Tailwind CSS: Utility-first CSS framework for styling
 - Axios: HTTP client for API requests
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
