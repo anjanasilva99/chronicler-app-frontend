@@ -24,24 +24,30 @@ function App() {
   try {
     setLoading(true);
     setError(null);
-    
+
     const formData = new FormData();
-    formData.append('inputFile', file);
-    
+    formData.append("inputFile", file);
+
     const response = await axios.post(`${API_URL}/api/calculate`, formData, {
       headers: {
-        'Content-Type': 'multipart/form-data'
-      }
+        "Content-Type": "multipart/form-data",
+      },
     });
-    
+
     if (response.data.success) {
       setResults(response.data.data);
     } else {
-      setError(response.data.error || 'An error occurred while processing the file');
+      setError(
+        response.data.error || "An error occurred while processing the file"
+      );
     }
   } catch (err) {
-    console.error('API call error:', err);
-    setError(err.message || 'An unexpected error occurred');
+    // Check if the error response contains data from the backend
+    if (err.response && err.response.data && err.response.data.error) {
+      setError(err.response.data.error);
+    } else {
+      setError(err.message || "An unexpected error occurred");
+    }
   } finally {
     setLoading(false);
   }
